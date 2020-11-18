@@ -1,0 +1,90 @@
+body {
+	font-size: 13px;
+}
+header {
+	text-align: left;
+}
+header .col-md-1 img {
+	width: 74%;
+	margin-left: 15px;
+}
+header .col-md-2 {
+	background-color: #272b30;
+	color: #fff;
+}
+header .col-md-2 h5{
+	padding-top: 12px;
+	font-weight: 400;
+}
+header .col-md-8 {
+	background-color: #494e53;
+	color: #fff;
+	border-radius: 0px;
+	height: auto;
+}
+header #signout {
+	background-color: #343a40;
+	color: #fff;
+	border-radius: 0px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #494e53;
+    background-clip: padding-box;
+    border: 1px solid #494e53;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.wrapper .content-wrapper {
+	background-color: #fff;
+	padding-top: 15px;
+}
+.main-sidebar{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #f8f9fa;
+    background-clip: border-box;
+    border-right: 1px solid rgba(0,0,0,.125);
+}
+.nav-link {
+	color: #6c757d;
+	font-weight: 500;
+}
+.wrapper .sidebar span {
+	color: #8a9197;
+}
+.dataTables_filter {
+    display: none;
+}
+.container-fluid .card-header {
+	background-color: #f7f7f7;
+}
+.card-body .col-md-2 #font {
+	font-weight: 400;
+	padding-top: 5px;
+    padding-left: 15px;
+}
+#fix {
+   position: fixed;
+   bottom: 0;
+}
+.table-bordered td, .table-bordered th {
+    border: 0px solid #dee2e6;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}

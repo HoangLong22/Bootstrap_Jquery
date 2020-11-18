@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jquery DataTable</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>        
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"> 
+  	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  	<link href="./css/styles.css" rel="stylesheet">
+  	<link rel="stylesheet" href="dist/css/adminlte.min.css">
+</head>
+<body>
+	<header>
+	  <div class="row">
+	  	<div class="col-md-1">
+	  		<img src="./img/logo_02.png">
+	  	</div>
+
+	  	<div class="col-md-2">
+	  		<h5>Jquert Tutorial</h5>
+	  	</div>
+
+  		<input class="form-control col-md-8" type="text" placeholder="Search" style="border: 1px solid #494e53;">
+
+  		<button class="btn btn-dark col-md-1" id="signout">Sign out</button>
+
+	  </div>
+    </header>
+
+    <div class="wrapper">
+	<aside class="main-sidebar">
+	    <div class="sidebar">
+	      <nav class="mt-2">
+	        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+	          <li class="nav-item has-treeview menu-open">
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	                  <i class="fas fa-home nav-icon"></i>
+	                  <p>Dashboard</p>
+	                </a>
+	              </li>
+	               <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	                  <i class="far fa-file nav-icon"></i>
+	                  <p>Orders</p>
+	                </a>
+	              </li>
+	              <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	                  <i class="fas fa-shopping-cart nav-icon"></i>
+	                  <p>Products</p>
+	                </a>
+	              </li>
+	              <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	                  <i class="fas fa-user-friends nav-icon"></i>
+	                  <p>Customer</p>
+	                </a>
+	              </li>
+	              <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	                  <i class="far fa-chart-bar  nav-icon"></i>
+	                  <p>Reports</p>
+	                </a>
+	              </li>
+	              <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	                  <i class="fas fa-chess-board nav-icon"></i>
+	                  <p>Integrations</p>
+	                </a>
+	              </li>
+	        	</ul>
+	        	</li>
+	    	</ul>
+	      	</nav>
+	      	<span>Save Report</span>
+	      	<span style="float: right;"><i class="fas fa-plus-circle"></i></span>
+	      	<nav class="mt-2">
+	        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+	          <li class="nav-item has-treeview menu-open">
+	            <ul class="nav nav-treeview">
+	              <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	                  <i class="far fa-file-alt nav-icon"></i>
+	                  <p>Current month</p>
+	                </a>
+	              </li>
+	               <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	               		<i class="far fa-file-alt nav-icon"></i>
+	                  <p>Last quater</p>
+	                </a>
+	              </li>
+	              <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	                  <i class="far fa-file-alt nav-icon"></i>
+	                  <p>Social engagement</p>
+	                </a>
+	              </li>
+	              <li class="nav-item">
+	                <a href="./index2.html" class="nav-link">
+	                  <i class="far fa-file-alt nav-icon"></i>
+	                  <p>Year-end sale</p>
+	                </a>
+	              </li>
+	        	</ul>
+	        	</li>
+	    	</ul>
+	      	</nav>
+	    </div>
+  	</aside>
+  	<div class="content-wrapper">
+	<div class="container body-content">    
+	<section class="content">
+	    <div class="container-fluid">
+	        <div class="card card-default">
+	        	<div class="card-header">
+	                <h3 class="card-title">Search</h3>
+	            </div>
+	            <div class="card-body">
+	                <div class="row">
+	                    <div class="col-md-6">
+	                    	<form method="post" id="myForm" name="myForms" onsubmit="return validateform()">
+	                            <div class="form-group">
+	                                <div class="row">
+	                                    <div class="col-md-2">
+	                                        <label id="font">ID:</label>
+	                                    </div>
+	                                    <div class="col-md-10">
+	                                        <input type="number" name="id" class="form-control" id="myInputId" />
+	                                    </div>
+	                                </div>
+	                            </div> 
+	                        </form>
+	                    </div>
+	                    <div class="col-md-6">
+	                    	<form method="post" id="myForm" name="myForms" onsubmit="return validateform()">
+	                            <div class="form-group">
+	                                <div class="row">
+	                                    <div class="col-md-2">
+	                                        <label id="font">Name:</label>
+	                                    </div>
+	                                    <div class="col-md-10">
+	                                        <input class="form-control" name="name" id="myInputName" />
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </form>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="container-fluid">
+	        <div class="card card-default">
+	        	<div class="card-header">
+	                <h3 class="card-title">Details</h3>
+	            </div>
+	            <div class="card-body">
+	                <form action="abc">
+	                    <div class="row">
+	                        <div class="col-md-6">
+	                        	<div class="form-group">
+	                        	<div class="row">
+                                    <div class="col-md-2">
+                                       <label id="font">Name</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                      <input type="text" class="form-control" id="name" readonly="" />
+                                    </div>
+                                </div>   
+	                            </div>
+
+	                            <div class="form-group">
+	                        	<div class="row">
+                                    <div class="col-md-2">
+                                      <label id="font">Salary</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                       <input type="text" class="form-control" id="salary" readonly="" />
+                                    </div>
+                                </div>   
+	                            </div>
+
+	                            <div class="form-group">
+	                        	<div class="row">
+                                    <div class="col-md-2">
+                                      <label id="font">Office</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                       <input type="text" class="form-control" id="office" readonly="" />
+                                    </div>
+                                </div>   
+	                            </div>
+	                        </div>
+	                        <div class="col-md-6">
+	                        	<div class="form-group">
+	                        	<div class="row">
+                                    <div class="col-md-2">
+                                     <label id="font">Position</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                       <input type="text" class="form-control" id="position" readonly="" />
+                                    </div>
+                                </div>   
+	                            </div>
+
+	                            <div class="form-group">
+	                        	<div class="row">
+                                    <div class="col-md-2">
+                                     <label id="font">Extn</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                         <input type="text" class="form-control" id="extn" readonly=""/>
+                                    </div>
+                                </div>   
+	                            </div>
+
+	                            <div class="form-group">
+	                        	<div class="row">
+                                    <div class="col-md-2">
+                                      <label id="font">Date</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" id="date"  readonly=""/>
+                                    </div>
+                                </div>   
+	                            </div>
+	                        </div>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="container-fluid">
+	        <div class="card card-default">
+	        	<div class="card-header">
+	                <h3 class="card-title">Table</h3>
+	            </div>
+	    <div class="card-body" style="padding-bottom: 50px;">
+	        <table id="example" class="table table-bordered table-hover">
+	            <thead>
+	                <tr class="project-actions text-center">
+	                    <th>ID</th>
+	                    <th>Name</th>
+	                    <th style="width: 152px;">Position</th>
+	                    <th>Salary</th>
+	                    <th>Start Date</th>
+	                    <th style="width: 110px;">Office</th>
+	                    <th>Extn</th>
+	                    <th>Delete</th>
+	                </tr>
+	            </thead>
+	            <tbody id="myTable" style="text-align: center;">
+	            </tbody>
+	        </table>
+	    </div>
+	</div>
+</div>
+	</section>
+	</div>
+
+	<div class="container-fluid" id="fix">
+	    <div class="card card-default">
+	        <div class="card-bodys row">
+	            <button class="btn btn-outline-primary col-md-1">F1</button>
+	            <button class="btn btn-outline-primary col-md-1">F2</button>
+	            <button class="btn btn-outline-primary col-md-1" id="btn_search">
+	                <span>F3</span>
+	                <br />
+	                <span>Search</span>
+	            </button>
+	            <button class="btn btn-outline-primary col-md-1">F4</button>
+	            <button class="btn btn-outline-primary col-md-1" id="btn_reset">
+	                <span>F5</span>
+	                <br />
+	                <span>Clear</span>
+	            </button>
+	            <button class="btn btn-outline-primary col-md-1">F6</button>
+	            <button class="btn btn-outline-primary col-md-1">F7</button>
+	            <button class="btn btn-outline-primary col-md-1">F8</button>
+	            <button class="btn btn-outline-primary col-md-1">F9</button>
+	            <button class="btn btn-outline-primary col-md-1" id="btn_save">
+	                <span>F10</span>
+	                <br />
+	                <span>Save</span>
+	            </button>
+	            <button class="btn btn-outline-primary col-md-1">F11</button>
+	            <button class="btn btn-outline-primary col-md-1">F12</button>
+	        </div>
+	    </div>
+	</div>
+  	</div>
+</div>
+<script src="js/blog.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

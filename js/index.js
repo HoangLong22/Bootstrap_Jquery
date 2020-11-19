@@ -30,7 +30,7 @@ function createSelectOffice(row) {
 
 var table = $('#example').DataTable({
     data: JSON.parse(dataJson).users,
-    paging: false,
+    //paging: false,
     columns: [
         { data: 'id' },
         { data: 'name' },
